@@ -1,42 +1,125 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Container {
+    @apply min-h-screen flex flex-col md:flex-row lg:flex-row md:pt-11 lg:pt-11 w-9/12 lg:mx-auto; 
+    min-width: 70%;
+} 
+
+.ProductImage , .ProductImage2{
+  @apply w-full lg:w-10/12 md:w-10/12 h-96 relative mx-auto duration-500 transition-all md:rounded-lg	lg:rounded-lg	cursor-pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.ProductImage2{
+  width: 90%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.Toggle{
+  @apply bg-white w-12 h-12 cursor-pointer rounded-full flex justify-center items-center absolute lg:hidden ;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.Toggle.active{
+  @apply bg-white w-12 h-12 cursor-pointer rounded-full flex justify-center items-center absolute  ;
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.Toggle.left{
+  left: 5%;
+}
+.Toggle.right{
+   right: 5%;
 }
 
-.card {
-  padding: 2em;
+.Images{
+  @apply w-24 rounded-lg rounded-lg overflow-hidden relative;
 }
 
-.read-the-docs {
-  color: #888;
+.Images.focused{
+  border: 2px solid orange;
+  transform: scale(1.07);
 }
+.Images.focused img{
+  opacity: .5;
+} 
+
+.Images.focusedDeatails{
+  border: 2px solid orange;
+  transform: scale(1.07);
+}
+.Images.focusedDeatails span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255 , .4);
+}
+
+
+
+.MenuList{
+  transition: 0.5S;
+}
+.MenuList.opened{
+  transform: translateX(0%);
+}
+
+@media all and (max-width : 1255px) {
+    .Container {
+       width: 100%;
+    } 
+    
+}
+
+@media all and (max-width : 942px) {
+    .Container {
+      flex-direction: column;
+      align-items: center;
+    } 
+    .MenuList{
+       position: absolute;
+       height: 100vh;
+       background-color: white;
+       top: 0;
+       left:0%;
+       transform: translateX(-100%);
+       z-index: 10;
+       width: 60%;
+       display: flex;
+       flex-direction: column;
+       align-items: start;
+       padding: 20px 45px;
+       
+    }   
+    .MenuList img{
+      display: block;
+      margin-bottom: 35px;
+    }
+    .MenuList ul{  
+       flex-direction: column;
+       align-items: start;
+       margin: 0;
+    }
+
+    .MenuList ul li{  
+     font-weight: bold;
+    }
+
+    .MenuBack{
+     background-color: rgb(0, 0, 0 , 0.6);
+     position: absolute;
+     width: 100%;
+     height: 100vh;
+     z-index: 9;
+     top: 0;
+     left: 0;
+    }
+    
+   
+} 
+

@@ -1,0 +1,19 @@
+.MenuItems{
+    position: relative;
+}
+
+.MenuItems:hover::after{
+    width: 100%;
+}
+
+.MenuItems::after{
+  content: " ";
+  transition: 0.6s;
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  background-color: hsl(26, 100%, 55%) ;
+  border-radius: 2px;
+}
